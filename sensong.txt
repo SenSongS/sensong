@@ -1,8 +1,191 @@
-#include<stdio.h>
-main()
-{
-     int n;
-     printf("input number:");
-     scanf("%d",&n);
-      printf("n=%d",n);
+package jsq;
+
+import java.awt.Color;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.text.NumberFormat;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+import org.dyno.visual.swing.layouts.Constraints;
+import org.dyno.visual.swing.layouts.GroupLayout;
+import org.dyno.visual.swing.layouts.Leading;
+
+//VS4E -- DO NOT REMOVE THIS LINE!
+public class js extends JFrame {
+
+	private static final long serialVersionUID = 1L;
+	private JLabel jLabel0;
+	private JButton jButton3;
+	private JTextField jTextField1;
+	private JTextField jTextField2;
+	private JTextField jTextField3;
+	private JButton jButton4;
+	private JPanel jPanel0;
+	private JLabel jLabel1;
+	private JLabel jLabel2;
+	private JLabel jLabel3;
+	private JTextField jTextField4;
+
+	public js() {
+		initComponents();
+	}
+
+	private void initComponents() {
+		setTitle("复利计算器");
+		setLayout(new GroupLayout());
+		add(getJLabel0(), new Constraints(new Leading(127, 74, 10, 10), new Leading(46, 10, 10)));
+		add(getJTextField2(), new Constraints(new Leading(141, -42, 10, 10), new Leading(107, 10, 10)));
+		add(getJPanel0(), new Constraints(new Leading(185, 119, 10, 10), new Leading(18, 140, 10, 10)));
+		add(getJLabel1(), new Constraints(new Leading(24, 46, 10, 10), new Leading(16, 12, 12)));
+		add(getJTextField1(), new Constraints(new Leading(61, 90, 12, 12), new Leading(46, 12, 12)));
+		add(getJTextField3(), new Constraints(new Leading(61, 90, 12, 12), new Leading(74, 12, 12)));
+		add(getJLabel2(), new Constraints(new Leading(10, 12, 12), new Leading(48, 12, 12)));
+		add(getJLabel3(), new Constraints(new Leading(21, 10, 10), new Leading(74, 12, 12)));
+		add(getJTextField4(), new Constraints(new Leading(63, 86, 12, 12), new Leading(14, 12, 12)));
+		add(getJButton3(), new Constraints(new Leading(17, 70, 10, 10), new Leading(124, 10, 10)));
+		add(getJButton4(), new Constraints(new Leading(107, 12, 12), new Leading(124, 12, 12)));
+		setSize(320, 189);
+	}
+
+	private JTextField getJTextField4() {
+		if (jTextField4 == null) {
+			jTextField4 = new JTextField();
+		}
+		return jTextField4;
+	}
+
+	private JLabel getJLabel3() {
+		if (jLabel3 == null) {
+			jLabel3 = new JLabel();
+			jLabel3.setText("年数：");
+		}
+		return jLabel3;
+	}
+
+	private JLabel getJLabel2() {
+		if (jLabel2 == null) {
+			jLabel2 = new JLabel();
+			jLabel2.setText("年利率：");
+		}
+		return jLabel2;
+	}
+
+	private JLabel getJLabel1() {
+		if (jLabel1 == null) {
+			jLabel1 = new JLabel();
+			jLabel1.setText("本金：");
+		}
+		return jLabel1;
+	}
+
+	private JPanel getJPanel0() {
+		if (jPanel0 == null) {
+			jPanel0 = new JPanel();
+			jPanel0.setBackground(Color.black);
+			jPanel0.setLayout(new GroupLayout());
+			jPanel0.addMouseListener(new MouseAdapter() {
+	
+				public void mouseClicked(MouseEvent event) {
+					jButton3MouseMouseClicked(event);
+				}
+	
+				public void mouseEntered(MouseEvent event) {
+					jPanel0MouseMouseEntered(event);
+				}
+			});
+		}
+		return jPanel0;
+	}
+
+	private JButton getJButton4() {
+		if (jButton4 == null) {
+			jButton4 = new JButton();
+			jButton4.setText("清除");
+		}
+		return jButton4;
+	}
+
+	private JTextField getJTextField3() {
+		if (jTextField3 == null) {
+			jTextField3 = new JTextField();
+		}
+		return jTextField3;
+	}
+
+	private JTextField getJTextField2() {
+		if (jTextField2 == null) {
+			jTextField2 = new JTextField();
+		}
+		return jTextField2;
+	}
+
+	private JTextField getJTextField1() {
+		if (jTextField1 == null) {
+			jTextField1 = new JTextField();
+			jTextField1.setCaretColor(Color.black);
+		}
+		return jTextField1;
+	}
+
+	private JButton getJButton3() {
+		if (jButton3 == null) {
+			jButton3 = new JButton();
+			jButton3.setText("计算");
+			jButton3.addMouseListener(new MouseAdapter() {
+	
+				public void mouseClicked(MouseEvent event) {
+					jButton3MouseMouseClicked(event);
+				}
+	
+				public void mouseEntered(MouseEvent event) {
+					jButton3MouseMouseClicked(event);
+				}
+			});
+		}
+		return jButton3;
+	}
+
+	private JLabel getJLabel0() {
+		if (jLabel0 == null) {
+			jLabel0 = new JLabel();
+		}
+		return jLabel0;
+	}
+	jisuan jisuan=new jisuan();
+	private void jButton3MouseMouseClicked(MouseEvent event) 
+	{
+		double principal;
+	    double amount;
+	    double rate;
+        int n;
+        NumberFormat currencyformatter=NumberFormat.getCurrencyInstance();
+        String output="年"+"/t"+"复利存款"+"/n";
+        int year =1;
+        principal=Double.parseDouble(jTextField4.getText());
+        rate=Double.parseDouble(jTextField1.getText()); 
+        n=Integer.parseInt(jTextField3.getText());
+         while(year<=n)
+        {
+    	  amount=principal*Math.pow(1+rate,year);
+    	  output+=String.valueOf(year)+"\t"+currencyformatter.format(amount)+"\n";
+         year=year+1;
+         }
+   
+}
+
+	private void jPanel0MouseMouseEntered(MouseEvent event) {
+	
+	}
+	
+
+	
+	
+
+	
+
 }
